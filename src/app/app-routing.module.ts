@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { MainMenuComponent } from './main-menu/main.menu.component';
 import { MidiKeyboardComponent } from './midi-keyboard/midi.keyboard.component';
+import { ViewMidiKeyboardComponent } from './midi-keyboard/view-midi-keyboard/view.midi.keyboard.component';
+import { SpecificationComponent } from './midi-keyboard/specification/specification.component';
 
 
 const routes: Routes = [
@@ -18,6 +20,14 @@ const routes: Routes = [
   {
     path: 'midi-keyboard',
     component: MidiKeyboardComponent
+  },
+  {
+    path: 'midi-keyboard/view-midi-keyboard/:midiKeyboardId',
+    component: ViewMidiKeyboardComponent
+  },
+  {
+    path: 'specification',
+    component: SpecificationComponent
   }
 ];
 

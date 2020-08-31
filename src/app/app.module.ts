@@ -6,13 +6,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainMenuComponent } from './main-menu/main.menu.component';
 import { MidiKeyboardComponent } from './midi-keyboard/midi.keyboard.component';
+import { ViewMidiKeyboardComponent } from './midi-keyboard/view-midi-keyboard/view.midi.keyboard.component';
+import { SpecificationComponent } from './midi-keyboard/specification/specification.component';
 import { MidiKeyboardService } from './midi-keyboard/midi.keyboard.service';
+import { ViewMidiKeyboardService } from './midi-keyboard/view-midi-keyboard/view.midi.keyboard.service';
+import { SpecificationService } from './midi-keyboard/specification/specification.service';
+import { EnumService } from './util/enum.service';
+import { RouterService } from './util/router.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     MainMenuComponent,
-    MidiKeyboardComponent
+    MidiKeyboardComponent,
+    ViewMidiKeyboardComponent,
+    SpecificationComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +29,11 @@ import { MidiKeyboardService } from './midi-keyboard/midi.keyboard.service';
     AppRoutingModule
   ],
   providers: [
-    MidiKeyboardService
+    MidiKeyboardService,
+    ViewMidiKeyboardService,
+    SpecificationService,
+    EnumService,
+    RouterService
   ],
   bootstrap: [AppComponent]
 })

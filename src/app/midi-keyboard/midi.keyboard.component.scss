@@ -1,3 +1,21 @@
 .container-fluid {
-    padding-top: 250px;
+  padding-top: 70px;
+}
+
+.table {
+  tr {
+     text-align: center;
+  }
+  .short-col {
+    width: 10%;
+  }
+
+  .regular-col {
+    width: 20%;
+  }
+
+  .midi-out-img {
+    width: 20px;
+    height: auto;
+  }
 }
