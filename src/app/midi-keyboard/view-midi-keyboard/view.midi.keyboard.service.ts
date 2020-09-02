@@ -10,4 +10,8 @@ export class ViewMidiKeyboardService {
 
   }
 
+  getMidiById(midiKeyboardId): Observable<MidiKeyboardDto> {
+    return this.httpClient.get<MidiKeyboardDto>('api/midiKeyboard/' + midiKeyboardId);
+  }
+
 }

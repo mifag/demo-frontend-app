@@ -6,4 +6,5 @@ export class MidiKeyboardDto {
   keysNumber: string;
   hasMidiOut: boolean;
   price: number;
+  specificationId: number;
 }

@@ -19,7 +19,11 @@
             <td>{{midiKeyboard.model}}</td>
             <td class="regular-col">{{midiKeyboard.manufacturer}}</td>
             <td class="short-col">{{midiKeyboard.keysNumber}}</td>
-            <td class="short-col"><img class="midi-out-img" [src]="getImageUrl(midiKeyboard.hasMidiOut)"/></td>
+            <td class="short-col" >
+              <div class="midi-out-img mx-auto" [ngClass]="{'image-yes': midiKeyboard.hasMidiOut,
+              'image-no': !midiKeyboard.hasMidiOut}">
+              </div>
+            </td>
             <td>{{midiKeyboard.price}}</td>
           </tr>
         </tbody>
