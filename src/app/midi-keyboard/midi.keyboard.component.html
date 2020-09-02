@@ -14,7 +14,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let midiKeyboard of midiKeyboardList" (click)="viewMidiKeyboard(midiKeyboard.id)">
+          <tr *ngFor="let midiKeyboard of midiKeyboardList"
+              (click)="viewMidiKeyboard(midiKeyboard.id, midiKeyboard.specificationId)">
             <td class="short-col">{{midiKeyboard.id}}</td>
             <td>{{midiKeyboard.model}}</td>
             <td class="regular-col">{{midiKeyboard.manufacturer}}</td>

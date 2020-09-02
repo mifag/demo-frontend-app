@@ -27,8 +27,9 @@ export class MidiKeyboardComponent {
     });
   }
 
-  viewMidiKeyboard(midiKeyboardId) {
+  viewMidiKeyboard(midiKeyboardId,specificationId) {
     this.routerService.setMidiKeyboardId(midiKeyboardId);
+    this.routerService.setSpecificationId(specificationId);
     this.router.navigate(['midi-keyboard/view-midi-keyboard/', midiKeyboardId]);
   }
 }

@@ -10,7 +10,7 @@ export class SpecificationService {
 
   }
 
-  getSpecificationByIdService(specificationId): Observable<SpecificationDto> {
+  getSpecificationById(specificationId): Observable<SpecificationDto> {
     return this.httpClient.get<SpecificationDto>('/api/specification/' + specificationId);
   }
 }

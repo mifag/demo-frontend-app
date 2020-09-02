@@ -26,12 +26,24 @@ export class ViewMidiKeyboardComponent {
               private routerService: RouterService,
               private router: Router) {
       this.midiKeyboardId = routerService.getMidiKeyboardId();
+      this.specificationId = routerService.getSpecificationId();
       this.getMidiKeyboardById();
+      this.getSpecificationById();
   }
 
   getMidiKeyboardById() {
-    this.viewMidiKeyboardService.getMidiById(this.midiKeyboardId).subscribe(midiKeyboard =>  {
+    this.viewMidiKeyboardService.getMidiById(this.midiKeyboardId).subscribe(midiKeyboard => {
       this.midiKeyboardDto = midiKeyboard;
     });
+  }
+
+  getSpecificationById() {
+    if (this.specificationId !== null) {
+      this.specificationService.getSpecificationById(this.specificationId).subscribe(specification => {
+       this.specificationDto = specification;
+      });
+    } else {
+      this.specificationDto;
+    }
   }
 }
