@@ -12,8 +12,6 @@ import { MidiKeyboardService } from './midi-keyboard/midi.keyboard.service';
 import { ViewMidiKeyboardService } from './midi-keyboard/view-midi-keyboard/view.midi.keyboard.service';
 import { SpecificationService } from './midi-keyboard/specification/specification.service';
 import { EnumService } from './util/enum.service';
-import { RouterService } from './util/router.service';
-
 
 @NgModule({
   declarations: [
@@ -32,8 +30,7 @@ import { RouterService } from './util/router.service';
     MidiKeyboardService,
     ViewMidiKeyboardService,
     SpecificationService,
-    EnumService,
-    RouterService
+    EnumService
   ],
   bootstrap: [AppComponent]
 })

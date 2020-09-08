@@ -6,7 +6,6 @@ import { MidiKeyboardComponent } from './midi-keyboard/midi.keyboard.component';
 import { ViewMidiKeyboardComponent } from './midi-keyboard/view-midi-keyboard/view.midi.keyboard.component';
 import { SpecificationComponent } from './midi-keyboard/specification/specification.component';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -22,7 +21,7 @@ const routes: Routes = [
     component: MidiKeyboardComponent
   },
   {
-    path: 'midi-keyboard/view-midi-keyboard/:midiKeyboardId',
+    path: 'midi-keyboard/view/:id',
     component: ViewMidiKeyboardComponent
   },
   {

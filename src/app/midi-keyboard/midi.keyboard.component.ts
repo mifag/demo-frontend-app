@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 import { MidiKeyboardService } from './midi.keyboard.service';
 import { MidiKeyboardDto } from './dto/midi.keyboard.dto';
-import { RouterService } from "./../util/router.service";
 import { Router } from "@angular/router";
+
 
 @Component({
   selector: 'midi-keyboard',
@@ -16,8 +16,7 @@ export class MidiKeyboardComponent {
   imageUrl: string;
 
   constructor(private midiKeyboardService: MidiKeyboardService,
-              private routerService: RouterService,
-              private router: Router,) {
+              private router: Router) {
     this.getAllMidiKeyboards();
   }
 
@@ -27,9 +26,7 @@ export class MidiKeyboardComponent {
     });
   }
 
-  viewMidiKeyboard(midiKeyboardId,specificationId) {
-    this.routerService.setMidiKeyboardId(midiKeyboardId);
-    this.routerService.setSpecificationId(specificationId);
-    this.router.navigate(['midi-keyboard/view-midi-keyboard/', midiKeyboardId]);
+  viewMidiKeyboard(midiKeyboardId) {
+    this.router.navigate(['midi-keyboard/view/', midiKeyboardId]);
   }
 }

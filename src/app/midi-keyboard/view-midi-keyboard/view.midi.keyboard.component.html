@@ -1,7 +1,105 @@
 <div class="container-fluid">
-  <div class="row">
+  <div class="row row-model">
     <div class="col-4 offset-1">
-      <h4></h4>
+      <div class="shadow-sm p-4 mb-4 bg-white" align="center">
+        <h2>{{midiKeyboardDto.manufacturer}} {{midiKeyboardDto.model}}</h2>
+      </div>
+    </div>
+    <div class="col-4 offset-1">
+      <div>{{error}}</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2 offset-1">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th class="short-col">Описание</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody >
+          <tr>
+            <td>Id: </td>
+            <td>{{midiKeyboardDto.id}}</td>
+          </tr>
+          <tr>
+            <td>Модель: </td>
+            <td>{{midiKeyboardDto.model}}</td>
+          </tr>
+          <tr>
+            <td>Производитель: </td>
+            <td>{{midiKeyboardDto.manufacturer}}</td>
+          </tr>
+          <tr>
+            <td>Кол-во клавиш: </td>
+            <td>{{midiKeyboardDto.keysNumber}}</td>
+          </tr>
+          <tr>
+            <td>Midi-Выход </td>
+            <td>
+              <div class="midi-out-img mx-auto" [ngClass]="{'image-yes': midiKeyboardDto.hasMidiOut,
+              'image-no': !midiKeyboardDto.hasMidiOut}">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Цена: </td>
+            <td>{{midiKeyboardDto.price}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-2">
+      <div *ngIf="midiKeyboardDto.specificationId; then thenBlock else elseBlock"></div>
+      <ng-template #thenBlock>
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <th class="short-col">Спецификация</th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Id: </td>
+              <td>{{specificationDto.id}}</td>
+            </tr>
+            <tr>
+              <td>Вес: </td>
+              <td>{{specificationDto.weight}}</td>
+            </tr>
+            <tr>
+              <td>Длина: </td>
+              <td>{{specificationDto.length}}</td>
+            </tr>
+            <tr>
+              <td>Ширина: </td>
+              <td>{{specificationDto.width}}</td>
+            </tr>
+            <tr>
+              <td>Чувствительность </td>
+              <td>
+                <div class="midi-out-img mx-auto" [ngClass]="{'image-yes':specificationDto.velocity,
+                  'image-no': !specificationDto.velocity}">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Механика: </td>
+              <td>{{enumService.getTypeOfKeyEnumValue(specificationDto.typeOfKey)}}</td>
+            </tr>
+            </tbody>
+          </table>
+      </ng-template>
+      <ng-template #elseBlock>
+        <h3>Спецификация отсутствует.</h3>
+      </ng-template>
+    </div>
+    <div class="col-5 offset-1">
+      <table>
+
+      </table>
     </div>
   </div>
 </div>

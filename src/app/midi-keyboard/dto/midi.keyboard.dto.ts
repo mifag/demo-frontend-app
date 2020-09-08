@@ -1,6 +1,6 @@
 
 export class MidiKeyboardDto {
-  midiKeyboardId: number;
+  id: number;
   model: string;
   manufacturer: string;
   keysNumber: string;

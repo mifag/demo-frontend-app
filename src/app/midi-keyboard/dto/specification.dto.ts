@@ -1,7 +1,7 @@
 import { TypeOfKeyEnum } from "./../../enums/type.of.key.enum";
 
 export class SpecificationDto {
-  specificationId: number;
+  id: number;
   weight: number;
   length: number;
   width: number;

@@ -5,8 +5,8 @@ import { MidiKeyboardDto } from './../dto/midi.keyboard.dto';
 import { SpecificationDto } from './../dto/specification.dto';
 import { SpecificationService } from './../specification/specification.service';
 import { EnumService } from './../../util/enum.service';
-import { RouterService } from './../../util/router.service';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'view-midi-keyboard',
@@ -15,35 +15,39 @@ import { Router } from '@angular/router';
 })
 export class ViewMidiKeyboardComponent {
 
-  midiKeyboardId = null;
-  specificationId = null;
+  id: number = null;
+  specificationId: number = null;
   midiKeyboardDto: MidiKeyboardDto = new MidiKeyboardDto();
   specificationDto: SpecificationDto = new SpecificationDto();
+  error:any;
 
   constructor(private viewMidiKeyboardService: ViewMidiKeyboardService,
               private specificationService: SpecificationService,
               public enumService: EnumService,
-              private routerService: RouterService,
-              private router: Router) {
-      this.midiKeyboardId = routerService.getMidiKeyboardId();
-      this.specificationId = routerService.getSpecificationId();
-      this.getMidiKeyboardById();
-      this.getSpecificationById();
+              private router: Router,
+              private activateRoute: ActivatedRoute) {
+    this.id = activateRoute.snapshot.params['id'];
+    this.getMidiKeyboardById();
   }
 
   getMidiKeyboardById() {
-    this.viewMidiKeyboardService.getMidiById(this.midiKeyboardId).subscribe(midiKeyboard => {
-      this.midiKeyboardDto = midiKeyboard;
-    });
+    this.viewMidiKeyboardService.getMidiById(this.id).subscribe(midiKeyboard => {
+        this.midiKeyboardDto = midiKeyboard;
+        this.specificationId = midiKeyboard.specificationId;
+        this.getSpecificationById();
+      },
+      error => {
+        this.error = error.message;
+        console.log(error);
+      }
+    );
   }
 
   getSpecificationById() {
-    if (this.specificationId !== null) {
-      this.specificationService.getSpecificationById(this.specificationId).subscribe(specification => {
-       this.specificationDto = specification;
-      });
-    } else {
-      this.specificationDto;
+    if (this.specificationId) {
+      this.specificationService.getSpecificationById(this.specificationId).subscribe(
+        specification => {this.specificationDto = specification;}
+      );
     }
   }
 }
