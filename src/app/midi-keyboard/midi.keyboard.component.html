@@ -30,8 +30,45 @@
         </tbody>
       </table>
     </div>
-    <div class="col-3 offset-1">
-      <h3>Search:</h3>
+    <div class="col-3">
+      <h3>Поиск:</h3>
+      <form action="/">
+        <div class="form-group">
+          <label for="midi-id">Id:</label>
+          <input type="text" class="form-control" id="midi-id"
+                 [(ngModel)]="midiKeyboardSearchDto.id" placeholder="Введите id" name="midi-id">
+        </div>
+        <div class="form-group">
+          <label for="midi-model">Модель:</label>
+          <input type="text" class="form-control" id="midi-model"
+                 [(ngModel)]="midiKeyboardSearchDto.model" placeholder="Введите модель" name="model">
+        </div>
+        <div class="form-group">
+          <label for="midi-manufacturer">Производитель:</label>
+          <input type="text" class="form-control" id="midi-manufacturer"
+                 [(ngModel)]="midiKeyboardSearchDto.manufacturer" placeholder="Введите производителя" name="manufacturer">
+        </div>
+        <div class="form-group">
+          <label for="midi-key">Кол-во клавиш:</label>
+          <input type="text" class="form-control" id="midi-key"
+                 [(ngModel)]="midiKeyboardSearchDto.keysNumber" placeholder="Введите количество клавиш" name="keys">
+        </div>
+        <div class="form-group">
+          <label for="midi-price">Цена:</label>
+          <input type="text" class="form-control" id="midi-price"
+                 [(ngModel)]="midiKeyboardSearchDto.price" placeholder="Введите цену" name="price">
+        </div>
+        <div class="form-group form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input"
+                   [(ngModel)]="midiKeyboardSearchDto.hasMidiOut" name="midi-out">Midi-выход:
+          </label>
+        </div>
+        <button type="submit" class="btn btn-dark">Поиск</button>
+        <button type="button" class="btn btn-light" (click)="clearFilter()">
+          Очистить
+        </button>
+      </form>
     </div>
   </div>
 </div>
