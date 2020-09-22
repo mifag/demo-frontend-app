@@ -29,10 +29,13 @@
           </tr>
         </tbody>
       </table>
+      <div *ngIf="!midiKeyboardList.length" class="alert alert-dark" role="alert">
+        По вашему запросу ничего не найдено.
+      </div>
     </div>
     <div class="col-3">
       <h3>Поиск:</h3>
-      <form action="/">
+      <form>
         <div class="form-group">
           <label for="midi-id">Id:</label>
           <input type="text" class="form-control" id="midi-id"
@@ -64,7 +67,9 @@
                    [(ngModel)]="midiKeyboardSearchDto.hasMidiOut" name="midi-out">Midi-выход:
           </label>
         </div>
-        <button type="submit" class="btn btn-dark">Поиск</button>
+        <button type="submit" class="btn btn-dark" (click)="searchMidiKeyboard()">
+          Поиск
+        </button>
         <button type="button" class="btn btn-light" (click)="clearFilter()">
           Очистить
         </button>
