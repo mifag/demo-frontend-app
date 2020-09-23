@@ -46,4 +46,10 @@ export class MidiKeyboardComponent {
     this.midiKeyboardSearchDto = new MidiKeyboardSearchDto();
     this.getAllMidiKeyboards();
   }
+
+  keysChange(){
+      if(this.midiKeyboardSearchDto.keysNumber > 88) {
+          this.midiKeyboardSearchDto.keysNumber = 88;
+      }
+  }
 }

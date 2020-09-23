@@ -3,7 +3,7 @@ export class MidiKeyboardSearchDto {
   id: number;
   model: string;
   manufacturer: string;
-  keysNumber: string;
+  keysNumber: number;
   hasMidiOut: boolean;
   price: number;
 }

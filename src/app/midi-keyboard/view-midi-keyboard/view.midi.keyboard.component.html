@@ -5,8 +5,11 @@
         <h2>{{midiKeyboardDto.manufacturer}} {{midiKeyboardDto.model}}</h2>
       </div>
     </div>
-    <div class="col-4 offset-1">
+    <div class="col-5 offset-1">
       <div>{{error}}</div>
+      <div class="shadow-sm p-4 mb-4 bg-white" align="center">
+        <h2>Владельцы</h2>
+      </div>
     </div>
   </div>
   <div class="row">
@@ -97,8 +100,35 @@
       </ng-template>
     </div>
     <div class="col-5 offset-1">
-      <table>
-
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>
+              Id:
+            </th>
+            <th>
+              Имя:
+            </th>
+            <th>
+              Пол:
+            </th>
+            <th>
+              Возраст:
+            </th>
+            <th>
+              Уровень игры:
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let owner of midiKeyboardDto.owners">
+            <td>{{owner.id}}</td>
+            <td>{{owner.name}}</td>
+            <td>{{enumService.getSexEnumValue(owner.sex)}}</td>
+            <td>{{owner.age}}</td>
+            <td>{{enumService.getSkillLevelEnumValue(owner.skillLevel)}}</td>
+          </tr>
+        </tbody>
       </table>
     </div>
   </div>
