@@ -21,6 +21,7 @@ export class OwnerComponent implements OnInit {
 
   newOwner: OwnerDto;
   editedOwner: OwnerDto;
+  deletedOwner: OwnerDto;
   owners: Array<OwnerDto>;
   statusMessage: string;
 
@@ -41,9 +42,11 @@ export class OwnerComponent implements OnInit {
       this.owners = data;
     });
   }
+
   // добавление владельца
   addOwner() {
     this.newOwner = new OwnerDto();
+    document.getElementById('addButton').style.display = 'none';
   }
 
   // редактирование владельца
@@ -66,7 +69,7 @@ export class OwnerComponent implements OnInit {
       this.statusMessage = 'Данные успешно добавлены';
     });
     this.newOwner = null;
-    this.ngOnInit();
+    this.loadOwners();
   }
 
   // изменяем владельца
@@ -87,6 +90,16 @@ export class OwnerComponent implements OnInit {
   cancelAddOwner() {
     this.owners.pop();
     this.newOwner = null;
+    document.getElementById('addButton' ).style.display = 'block';
+  }
+
+  cancelDelete() {
+    this.loadOwners();
+  }
+
+  confirmDelete(owner: OwnerDto) {
+    this.deletedOwner = owner;
+    document.getElementById("confirmDeleteOwner").style.display = 'block';
   }
 
   // удаление владельца

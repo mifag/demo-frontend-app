@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { OwnerDto } from './dto/owner.dto'
 
 @Injectable()
@@ -11,8 +12,8 @@ export class OwnerService {
 
   }
 
-  getOwners() {
-    return this.httpClient.get(this.url);
+  getOwners(): Observable<OwnerDto[]> {
+    return this.httpClient.get<OwnerDto[]>(this.url);
   }
 
   createOwner(owner: OwnerDto){

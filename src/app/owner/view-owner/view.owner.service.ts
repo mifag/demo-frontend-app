@@ -10,7 +10,7 @@ export class ViewOwnerService {
 
   }
 
-  getOwnerById(ownerId): Observable<OwnerDto> {
+  getOwnerById(ownerId) {
     return this.httpClient.get<OwnerDto>('api/owner/' + ownerId);
   }
 
