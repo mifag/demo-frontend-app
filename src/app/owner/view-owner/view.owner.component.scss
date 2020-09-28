@@ -1,14 +1,8 @@
 .container-fluid {
-  padding-top: 100px;
-
+  padding-top: 70px;
   .table {
     tr {
-         text-align: center;
-    }
-
-    .midi-out-img {
-      width: 20px;
-      height: 20px;
+       text-align: center;
     }
 
     .short-col {
@@ -16,7 +10,12 @@
     }
 
     .regular-col {
-      width: 10%;
+      width: 20%;
+    }
+
+    .midi-out-img {
+      width: 20px;
+      height: 20px;
     }
 
     .image-yes {

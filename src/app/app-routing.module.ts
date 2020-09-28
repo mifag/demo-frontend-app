@@ -3,7 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { MainMenuComponent } from './main-menu/main.menu.component';
 import { MidiKeyboardComponent } from './midi-keyboard/midi.keyboard.component';
+import { OwnerComponent } from './owner/owner.component';
 import { ViewMidiKeyboardComponent } from './midi-keyboard/view-midi-keyboard/view.midi.keyboard.component';
+import { ViewOwnerComponent } from './owner/view-owner/view.owner.component';
 import { SpecificationComponent } from './midi-keyboard/specification/specification.component';
 
 const routes: Routes = [
@@ -21,8 +23,16 @@ const routes: Routes = [
     component: MidiKeyboardComponent
   },
   {
+    path: 'owner',
+    component: OwnerComponent
+  },
+  {
     path: 'midi-keyboard/view/:id',
     component: ViewMidiKeyboardComponent
+  },
+  {
+    path: 'owner/view/:id',
+    component: ViewOwnerComponent
   },
   {
     path: 'specification',

@@ -15,7 +15,6 @@ export class MidiKeyboardService {
     return this.httpClient.get<MidiKeyboardDto[]>('/api/midiKeyboard/allRecords');
   }
 
-
   searchMidiKeyboards(midiKeyboardSearch: MidiKeyboardSearchDto): Observable<MidiKeyboardDto[]> {
     return this.httpClient.post<MidiKeyboardDto[]>('/api/midiKeyboard/search', midiKeyboardSearch);
   }

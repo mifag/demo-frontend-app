@@ -13,6 +13,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './view.midi.keyboard.component.html',
   styleUrls: ['./view.midi.keyboard.component.scss']
 })
+
 export class ViewMidiKeyboardComponent {
 
   id: number = null;
@@ -32,9 +33,9 @@ export class ViewMidiKeyboardComponent {
 
   getMidiKeyboardById() {
     this.viewMidiKeyboardService.getMidiById(this.id).subscribe(midiKeyboard => {
-        this.midiKeyboardDto = midiKeyboard;
-        this.specificationId = midiKeyboard.specificationId;
-        this.getSpecificationById();
+      this.midiKeyboardDto = midiKeyboard;
+      this.specificationId = midiKeyboard.specificationId;
+      this.getSpecificationById();
       },
       error => {
         this.error = error.message;
@@ -49,5 +50,9 @@ export class ViewMidiKeyboardComponent {
         specification => {this.specificationDto = specification;}
       );
     }
+  }
+
+  viewOwner(ownerId) {
+    this.router.navigate(['owner/view/', ownerId]);
   }
 }

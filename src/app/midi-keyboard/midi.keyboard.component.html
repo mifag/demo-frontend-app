@@ -4,7 +4,7 @@
     <div class="col-7 offset-1">
       <table class="table table-bordered table-dark table-hover">
         <thead>
-          <tr class="tr-head">
+          <tr>
             <th>Id</th>
             <th>Модель</th>
             <th>Производитель</th>
@@ -45,7 +45,8 @@
           <label for="midi-model">Модель:</label>
           <input type="text" class="form-control" id="midi-model"
                  [(ngModel)]="midiKeyboardSearchDto.model"
-                 placeholder="Введите модель" name="model">
+                 placeholder="Введите модель" name="model"
+                 (change)="searchMidiKeyboard()">
         </div>
         <div class="form-group">
           <label for="midi-manufacturer">Производитель:</label>
@@ -57,7 +58,8 @@
         <div class="form-group">
           <label for="midi-key">Кол-во клавиш:</label>
           <input type="number" class="form-control" id="midi-key" min="1" max="88"
-                 [(ngModel)]="midiKeyboardSearchDto.keysNumber" placeholder="Введите количество клавиш" name="keys" (change)="keysChange()">
+                 [(ngModel)]="midiKeyboardSearchDto.keysNumber" placeholder="Введите количество клавиш" name="keys"
+                 (change)="keysChange()">
         </div>
         <div class="form-group">
           <label for="midi-price">Цена:</label>
